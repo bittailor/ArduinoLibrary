@@ -29,7 +29,7 @@ class File : public Stream {
   SdFile *_file;  // underlying file pointer
 
 public:
-  File(SdFile f, char *name);     // wraps an underlying SdFile
+  File(SdFile f, const char *name);     // wraps an underlying SdFile
   File(void);      // 'empty' constructor
   ~File(void);     // destructor
   virtual size_t write(uint8_t);

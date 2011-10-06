@@ -241,6 +241,10 @@ void SdFile::ls(uint8_t flags, uint8_t indent) {
   }
 }
 //------------------------------------------------------------------------------
+
+extern char PROGMEM SdFile_illegal_FAT_characters[];
+char SdFile_illegal_FAT_characters[] = "|<>^+=?/[];,*\"\\";
+
 // format directory name field from a 8.3 name string
 uint8_t SdFile::make83Name(const char* str, uint8_t* name) {
   uint8_t c;
@@ -256,7 +260,8 @@ uint8_t SdFile::make83Name(const char* str, uint8_t* name) {
       i = 8;   // place for extension
     } else {
       // illegal FAT characters
-      PGM_P p = PSTR("|<>^+=?/[];,*\"\\");
+      // PGM_P p = PSTR("|<>^+=?/[];,*\"\\");
+      PGM_P p = SdFile_illegal_FAT_characters;
       uint8_t b;
       while ((b = pgm_read_byte(p++))) if (b == c) return false;
       // check size and only allow ASCII printable characters

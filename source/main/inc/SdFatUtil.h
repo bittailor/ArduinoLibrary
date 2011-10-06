@@ -33,7 +33,11 @@
 #define NOINLINE __attribute__((noinline))
 //------------------------------------------------------------------------------
 /** Return the number of bytes currently free in RAM. */
-static int FreeRam(void) {
+
+// put them in an anonymous namespace and remove static
+namespace {
+
+int FreeRam(void) {
   extern int  __bss_end;
   extern int* __brkval;
   int free_memory;
@@ -54,7 +58,7 @@ static int FreeRam(void) {
  *
  * \param[in] str Pointer to string stored in flash memory.
  */
-static NOINLINE void SerialPrint_P(PGM_P str) {
+NOINLINE void SerialPrint_P(PGM_P str) {
   for (uint8_t c; (c = pgm_read_byte(str)); str++) Serial.print(c);
 }
 //------------------------------------------------------------------------------
@@ -63,8 +67,11 @@ static NOINLINE void SerialPrint_P(PGM_P str) {
  *
  * \param[in] str Pointer to string stored in flash memory.
  */
-static NOINLINE void SerialPrintln_P(PGM_P str) {
+NOINLINE void SerialPrintln_P(PGM_P str) {
   SerialPrint_P(str);
   Serial.println();
 }
+
+} // namespace
+
 #endif  // #define SdFatUtil_h
