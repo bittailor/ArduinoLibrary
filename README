@@ -1,0 +1,5 @@
+This is clone of the Arduino (https://github.com/arduino/Arduino) C/C++ code packaged as 
+eclipse project CDT project.
+It includes the C/C++ files of the core (Arduino/hardware/arduino/cores/arduino) and of all the
+bundled libraries (Arduino/libraries).
+It uses boost-build as make tool.
