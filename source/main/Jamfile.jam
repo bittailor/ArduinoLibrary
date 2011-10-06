@@ -1,0 +1,8 @@
+
+project ArduinoLibrary/main 
+	: source-location src	 
+	: requirements <include>inc <include>src <include>src/utility 
+	: usage-requirements <include>inc <include>src <include>src/utility 
+	;
+
+lib ArduinoLibrary : [ glob-tree *.cpp ] [ glob-tree *.c  ] ;

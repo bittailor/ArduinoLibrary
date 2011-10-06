@@ -65,7 +65,7 @@ void pinMode(uint8_t pin, uint8_t mode)
 //
 //static inline void turnOffPWM(uint8_t timer) __attribute__ ((always_inline));
 //static inline void turnOffPWM(uint8_t timer)
-static void turnOffPWM(uint8_t timer)
+void turnOffPWM(uint8_t timer)
 {
 	switch (timer)
 	{

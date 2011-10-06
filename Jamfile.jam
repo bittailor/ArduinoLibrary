@@ -1,0 +1,18 @@
+
+project ArduinoLibrary 
+	: build-dir target 
+	: 
+	;
+
+
+# lib Core : : <file>../lib/libArduinoLibrary.a <include>/Users/gekko/Documents/code/Arduino_v1/ArduinoLibrary/inc : : <include>/Users/gekko/Documents/code/Arduino_v1/ArduinoLibrary/inc ;
+# lib Core : : <name>ArduinoLibrary <search>lib : : <include>/Users/gekko/Documents/code/Arduino_v1/ArduinoLibrary/inc ;
+
+# lib ArduinoLibrary : [ glob-tree *.cpp : demo ] ; 
+
+# exe Demo        : [ glob-tree *.cpp : src   ] Core : ; 
+
+
+use-project /ArduinoLibrary/main : source/main ;
+
+build-project source/main ;

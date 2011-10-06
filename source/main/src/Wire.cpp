@@ -113,6 +113,11 @@ uint8_t TwoWire::endTransmission(void)
 {
   // transmit buffer (blocking)
   int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1);
+  if (ret != 0)
+  {
+     return ret;
+  }
+
   // reset tx buffer iterator vars
   txBufferIndex = 0;
   txBufferLength = 0;

@@ -56,7 +56,10 @@ typedef struct _DELAY_TABLE
 
 #if F_CPU == 16000000
 
-static const DELAY_TABLE PROGMEM table[] = 
+namespace {
+
+extern const DELAY_TABLE PROGMEM table[];
+const DELAY_TABLE table[] =
 {
   //  baud    rxcenter   rxintra    rxstop    tx
   { 115200,   1,         17,        17,       12,    },
@@ -72,6 +75,8 @@ static const DELAY_TABLE PROGMEM table[] =
   { 1200,     947,       1902,      1902,     1899,  },
   { 300,      3804,      7617,      7617,     7614,  },
 };
+
+}
 
 const int XMIT_START_ADJUSTMENT = 5;
 
