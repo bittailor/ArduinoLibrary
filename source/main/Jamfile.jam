@@ -5,4 +5,6 @@ project ArduinoLibrary/main
 	: usage-requirements <include>inc <include>src <include>src/utility 
 	;
 
-lib ArduinoLibrary : [ glob-tree *.cpp ] [ glob-tree *.c  ] : <define>ARDUINO=100 ;
+lib ArduinoLibrary : [ glob-tree *.cpp ] [ glob-tree *.c  ] : <define>ARDUINO=100  <toolset>avr ;
+
+alias ArduinoLibrary :  :  ;
