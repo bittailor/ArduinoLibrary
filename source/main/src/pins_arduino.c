@@ -22,6 +22,8 @@
   $Id: wiring.h 249 2007-02-03 16:52:51Z mellis $
 */
 
+#define ARDUINO_MAIN
+
 #include "Arduino.h"
 #include "pins_arduino.h"
 
