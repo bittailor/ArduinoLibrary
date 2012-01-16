@@ -150,8 +150,8 @@ uint16_t recv(SOCKET s, uint8_t *buf, uint16_t len)
   if ( ret == 0 )
   {
     // No data available.
-    W5100.readSnSR(s);
-    if ( s == SnSR::LISTEN || s == SnSR::CLOSED || s == SnSR::CLOSE_WAIT )
+    uint8_t status = W5100.readSnSR(s);
+    if ( status == SnSR::LISTEN || status == SnSR::CLOSED || status == SnSR::CLOSE_WAIT )
     {
       // The remote end has closed its side of the connection, so this is the eof state
       ret = 0;

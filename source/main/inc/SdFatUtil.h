@@ -30,14 +30,13 @@
 /** Store and print a string in flash memory followed by a CR/LF.*/
 #define PgmPrintln(x) SerialPrintln_P(PSTR(x))
 /** Defined so doxygen works for function definitions. */
-#define NOINLINE __attribute__((noinline))
 //------------------------------------------------------------------------------
 /** Return the number of bytes currently free in RAM. */
 
 // put them in an anonymous namespace and remove static
 namespace {
 
-int FreeRam(void) {
+UNUSEDOK int FreeRam(void) {
   extern int  __bss_end;
   extern int* __brkval;
   int free_memory;
